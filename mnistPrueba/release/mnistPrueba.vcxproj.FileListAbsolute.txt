@@ -1,0 +1,2 @@
+C:\Users\nacho\OneDrive\Documents\C++\Redes Neuronales\mnistTestProg\release\mnistPrueba.exe
+C:\Users\nacho\OneDrive\Documents\C++\Redes Neuronales\mnistPrueba\release\mnistPrueba.exe
