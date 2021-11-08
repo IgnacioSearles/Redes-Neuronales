@@ -22,15 +22,15 @@ int main(int argc, char **argv)
 
         std::cout << "\n\nEntrenando red....\n\n";
 
-        RN.cambiarOffsetYMultiplicador(0.0001f, 3.5f);
+        RN.cambiarOffsetYMultiplicador(0.0001f, 0.1f);
 
         std::vector<std::vector<float>> ejemplos_xor = {{1, 0}, {0, 1}, {0, 0}, {1, 1}};
         std::vector<std::vector<float>> objetivos_xor = {{1}, {1}, {0}, {0}};
 
-        for (int epoch = 0; epoch < 50; epoch++)
+        for (int epoch = 0; epoch < 500; epoch++)
         {
             RN.mezclarEjemplos(ejemplos_xor, objetivos_xor);
-            std::cout << "Epoch " << epoch << "/50: " << std::endl;
+            std::cout << "Epoch " << epoch << "/500: " << std::endl;
 
             RN.entrenar(ejemplos_xor, objetivos_xor);
             std::cout << std::endl;

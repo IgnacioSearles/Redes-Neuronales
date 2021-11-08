@@ -79,17 +79,17 @@ float calcularPrecision(redNeuronal &RN, const std::vector<std::vector<float>>& 
 int main()
 {
     std::vector<int> forma = {784, 16, 10};
-    redNeuronal RN(forma, sigmoid, crossEntropy, weightNormalizacion, 0.8f);
-    RN.cambiarOffsetYMultiplicador(0.0001f, 0.01f);
+    redNeuronal RN(forma, sigmoid, crossEntropy, weightNormalizacion, 1.0f);
+    RN.cambiarOffsetYMultiplicador(0.0001f, 0.05f);
     RN.abrirRedDeArchivo("mnist.red");
 
-    std::vector<std::vector<float>> imagenesDePrueba = cargarInfoMNIST(SIZE_ARCHIVO_IMG, OFFSET_ARCHIVO_IMG, 255.0f, "mnistTrain60KImgs.bytes");
-    std::vector<std::vector<float>> objetivosDePrueba  = cargarInfoMNIST(SIZE_ARCHIVO_OBJETIVOS, OFFSET_ARCHIVO_OBJETIVOS, 1.0f, "mnistTrain60KLabels.bytes");
-    objetivosAOneShot(objetivosDePrueba);
-
-    std::vector<std::vector<float>> imagenesDeEntrenamiento = cargarInfoMNIST(SIZE_ARCHIVO_IMG, OFFSET_ARCHIVO_IMG, 255.0f, "mnistTest10KImgs.bytes");
-    std::vector<std::vector<float>> objetivosDeEntrenamiento  = cargarInfoMNIST(SIZE_ARCHIVO_OBJETIVOS, OFFSET_ARCHIVO_OBJETIVOS, 1.0f, "mnistTest10KLabels.bytes");
+    std::vector<std::vector<float>> imagenesDeEntrenamiento = cargarInfoMNIST(SIZE_ARCHIVO_IMG, OFFSET_ARCHIVO_IMG, 255.0f, "mnistTrain60KImgs.bytes");
+    std::vector<std::vector<float>> objetivosDeEntrenamiento  = cargarInfoMNIST(SIZE_ARCHIVO_OBJETIVOS, OFFSET_ARCHIVO_OBJETIVOS, 1.0f, "mnistTrain60KLabels.bytes");
     objetivosAOneShot(objetivosDeEntrenamiento);
+
+    std::vector<std::vector<float>> imagenesDePrueba = cargarInfoMNIST(SIZE_ARCHIVO_IMG, OFFSET_ARCHIVO_IMG, 255.0f, "mnistTest10KImgs.bytes");
+    std::vector<std::vector<float>> objetivosDePrueba  = cargarInfoMNIST(SIZE_ARCHIVO_OBJETIVOS, OFFSET_ARCHIVO_OBJETIVOS, 1.0f, "mnistTest10KLabels.bytes");
+    objetivosAOneShot(objetivosDePrueba);
 
     std::cout << "\nPrecision Inicial: " << calcularPrecision(RN, imagenesDeEntrenamiento, objetivosDeEntrenamiento) << "%" << std::endl << std::endl;
     for (int epoch = 0; epoch < 5; epoch++) {
