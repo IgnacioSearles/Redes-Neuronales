@@ -1,1 +1,0 @@
-C:\Users\nacho\OneDrive\Documents\C++\Redes Neuronales\mnist\release\redNeuronalMNIST.exe
