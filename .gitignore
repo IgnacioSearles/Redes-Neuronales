@@ -1,5 +1,5 @@
-.vscode
-mnist
-xor
-gpu
-/mnistPrueba/release
+.vscode/
+mnist/
+xor/
+gpu/
+mnistPrueba/release/
